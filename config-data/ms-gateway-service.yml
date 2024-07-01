@@ -1,0 +1,47 @@
+server:
+  port: 5050
+
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://localhost:8090/eureka
+      defaultZone: ${EUREKA_URI:http://localhost:8090/eureka}
+  instance:
+    #hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: envios-service
+          uri: lb://envios-service
+          predicates:
+            - Path=/api/envios/**, /envios/**, /
+
+        - id: tareas-service
+          uri: lb://tareas-service
+          predicates:
+            - Path=/api/tareas/**, /tareas/**, /
+
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/auth/**, /perfil/**, /api/user/**, /
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            alLowedOrigins: "*"
+            allowedMethods: "*"
+            alLowedHeaders: "*"
+
+
+
+
+
