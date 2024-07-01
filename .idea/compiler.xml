@@ -11,16 +11,22 @@
         <module name="envio_tareas_service" />
         <module name="servicio-tareas" />
         <module name="ms-gateway-server" />
+        <module name="ms-documento" />
         <module name="user-service" />
         <module name="Ms-registry-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ms-Documento" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Ms-registry-server" options="-parameters" />
       <module name="envio_tareas_service" options="-parameters" />
+      <module name="ms-Documento" options="-parameters" />
       <module name="ms-config-server" options="-parameters" />
+      <module name="ms-documento" options="-parameters" />
       <module name="ms-gateway-server" options="-parameters" />
       <module name="servicio-tareas" options="-parameters" />
       <module name="user-service" options="-parameters" />
