@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/GESTION-TESIS.iml" filepath="$PROJECT_DIR$/.idea/GESTION-TESIS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ms-Documento/ms-Documento.iml" filepath="$PROJECT_DIR$/ms-Documento/ms-Documento.iml" />
     </modules>
   </component>
 </project>
