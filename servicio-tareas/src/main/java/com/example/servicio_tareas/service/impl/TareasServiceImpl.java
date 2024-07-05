@@ -19,8 +19,8 @@ public class TareasServiceImpl implements TareaService {
     @Autowired
     private Tareasrepository tareasrepository;
     @Override
-    public Tareas createTareas(Tareas tareas, String requesterRole) throws Exception {
-        if(!requesterRole.equals(("ROLE ADMIN"))){
+    public Tareas createTareas(Tareas tareas, String requesterRol) throws Exception {
+        if(!requesterRol.equals(("ROLE ADMIN"))){
             throw new Exception("solo el admin puede crear tareas");
         }
 
@@ -31,15 +31,17 @@ public class TareasServiceImpl implements TareaService {
 
     @Override
     public Tareas getTareasById(Long id) throws Exception {
-        return tareasrepository.findById(id).orElseThrow(()->new Exception("tarea no encontrada con id"+id));
+        return tareasrepository.findById(id).orElseThrow(()->new Exception("tarea no encontrada con id"+ id));
     }
 
     @Override
     public List<Tareas> getAllTareas(TareaEstado estado) {
         List<Tareas> allTareas=tareasrepository.findAll();
+
         List<Tareas> filtrartareas=allTareas.stream().filter(
                 tareas -> estado==null || tareas.getStatus().name().equalsIgnoreCase(estado.toString())
-        ).collect(Collectors.toList());
+                 ).collect(Collectors.toList());
+
         return filtrartareas;
     }
 
@@ -62,7 +64,7 @@ public class TareasServiceImpl implements TareaService {
         if (updatedTareas.getFechaLimite()!=null){
             existenlasTareas.setFechaLimite(updatedTareas.getFechaLimite());
         }
-        return null;
+        return tareasrepository.save(existenlasTareas);
     }
 
     @Override

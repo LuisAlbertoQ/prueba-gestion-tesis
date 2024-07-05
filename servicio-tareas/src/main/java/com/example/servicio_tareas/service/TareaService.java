@@ -6,7 +6,7 @@ import com.example.servicio_tareas.entity.Tareas;
 import java.util.List;
 
 public interface TareaService {
-    Tareas createTareas(Tareas tareas, String requesterRole)throws Exception;
+    Tareas createTareas(Tareas tareas, String requesterRol)throws Exception;
     Tareas getTareasById(Long id)throws Exception;
     List<Tareas> getAllTareas(TareaEstado estado);
     Tareas updateTareas(Long id, Tareas updatedTareas, Long userId)throws Exception;

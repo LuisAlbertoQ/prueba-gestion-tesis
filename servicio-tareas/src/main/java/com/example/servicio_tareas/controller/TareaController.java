@@ -32,7 +32,7 @@ public class TareaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Tareas> getTareasById(@PathVariable Long id,
-                                                @RequestHeader("Authorization") String jwt) throws Exception {
+                                               @RequestHeader("Authorization") String jwt) throws Exception {
 
         UserDto user = userService.getUserProfile(jwt);
         Tareas tareas = tareaService.getTareasById(id);
