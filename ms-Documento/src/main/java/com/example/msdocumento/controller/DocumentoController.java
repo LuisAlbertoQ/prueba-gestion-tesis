@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/doctesis")
+@RequestMapping("/api/doctesis")
 public class DocumentoController {
 
     @Autowired
