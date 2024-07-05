@@ -37,14 +37,23 @@ spring:
           predicates:
             - Path=/api/doctesis/**, /
 
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-      globalcors:
+    default-filters:
+      - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+    globalcors:
         cors-configurations:
           '[/**]':
-            alLowedOrigins: "*"
-            allowedMethods: "*"
-            alLowedHeaders: "*"
+            allowedOrigins:
+              - "http://localhost:3000"
+              - "https://task-management-omega-dusky.vercel.app"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
 
 
 
